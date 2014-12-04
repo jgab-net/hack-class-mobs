@@ -1,0 +1,42 @@
+.card {
+	background-color: #ccc;
+	padding: 10px;
+}
+
+.card .profile-picture {
+	border: 2px solid #555;
+	background-color: #fff;
+	overflow: hidden;
+}
+
+.card .profile-picture img {
+	height: 100px;
+	width: auto;
+}
+
+.card .profile-name h3 {
+	margin: 0;
+}
+
+.card .life {
+	margin: 20px 0;
+}
+
+.container {
+	padding: 40px 0;
+}
+
+.fight-box {
+	background-color: #333;
+	border: 2px solid #555;
+	margin: 20px 0;
+	color: #fff;
+	padding: 20px 10px;
+	text-align: center;
+	font-size: 20px;
+}
+
+.fight-box span {
+	color: #DBFF00;
+	margin: 0 10px;
+}

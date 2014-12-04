@@ -9,11 +9,18 @@ class Player
 	end
 
 	def attack (player)	
-		attack = @faction.attacks[Random.rand(0...@faction.attacks.length-1)]
+		attack = @faction.attacks[Random.rand(0...@faction.attacks.length)]
 		unless player.is_dead?
 			damage = attack.damage
-			player.damage attack.damage	
-			return "#{@name} [#{@faction.type}] ataco a #{player.name} [#{player.faction.type}] con #{attack.name} y causo #{damage} daño, dejando a #{player.name} con #{player.life} puntos de vida"
+			player.damage damage
+			return "<div class='row'>
+			  <div class='col-md-12'>
+			    <div class='fight-box'>
+			      #{@name} [#{@faction.type}] ataco a #{player.name} [#{player.faction.type}] con #{attack.name} y causo #{damage} daño, dejando a #{player.name} con #{player.life} puntos de vida
+			    </div>
+			  </div>
+			</div>"
+			#return "#{@name} [#{@faction.type}] ataco a #{player.name} [#{player.faction.type}] con #{attack.name} y causo #{damage} daño, dejando a #{player.name} con #{player.life} puntos de vida"
 		end
 
 		"#{player.name} esta muerto "
