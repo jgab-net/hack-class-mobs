@@ -15,4 +15,16 @@ class Game
 
 	end
 
+	def run
+
+		attacksBuffer = ""
+
+		while !@player2.is_dead? && !@player1.is_dead? do
+			attacksBuffer+= @player1.attack(@player2) + "\n"
+			attacksBuffer+= @player2.attack(@player1) + "\n"
+		end
+
+		puts attacksBuffer
+	end
+
 end

@@ -2,7 +2,7 @@ class Player
 
 	LIFE = 10000
 
-	attr_reader :life, :name
+	attr_reader :life, :name, :faction
 	def initialize (name)
 		@life = LIFE
 		@name = name
@@ -13,8 +13,10 @@ class Player
 		unless player.is_dead?
 			damage = attack.damage
 			player.damage attack.damage	
-			puts "#{@name} ataco a #{player.name} con #{attack.name} y causo #{damage} daño, dejando a #{player.name} con #{player.life} puntos de vida"
+			return "#{@name} [#{@faction.type}] ataco a #{player.name} [#{player.faction.type}] con #{attack.name} y causo #{damage} daño, dejando a #{player.name} con #{player.life} puntos de vida"
 		end
+
+		"#{player.name} esta muerto "
 	end	
 
 	def damage (damage)

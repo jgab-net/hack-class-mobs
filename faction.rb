@@ -1,5 +1,5 @@
 class Faction
-	attr_reader :attacks
+	attr_reader :attacks, :type
 
 	def initialize (type)
 		@type = type
