@@ -1,16 +1,20 @@
 class Player
 
-	LIFE = 1000
+	LIFE = 10000
 
-	attr_reader :life
+	attr_reader :life, :name
 	def initialize (name)
 		@life = LIFE
 		@name = name
 	end
 
 	def attack (player)	
-		attack = @faction.attacks[0...@faction.attacks.length-1]
-		player.damage attack.damage unless player.is_dead?		
+		attack = @faction.attacks[Random.rand(0...@faction.attacks.length-1)]
+		unless player.is_dead?
+			damage = attack.damage
+			player.damage attack.damage	
+			puts "#{@name} ataco a #{player.name} con #{attack.name} y causo #{damage} daño, dejando a #{player.name} con #{player.life} puntos de vida"
+		end
 	end	
 
 	def damage (damage)
