@@ -5,14 +5,38 @@ class Game
 	attr_reader :player1, :player2
 
 	def initialize 
-		factions = Admin.new.setup
+		@factions = Admin.new.setup
 		
 		@player1 = Player.new 'pffrff'
-		@player1.set_faction(factions[0]);
+		@player1.set_faction(get_faction @player1)
+		@player1.add_armor(get_armor @player1)
+		@player1.calculate_new_life
+		
 
 		@player2 = Player.new 'yii'
-		@player2.set_faction(factions[1]);
+		@player2.set_faction(get_faction @player2)
+		@player2.add_armor(get_armor @player2)
+		@player2.calculate_new_life
+		
 
+	end
+
+	def get_faction player
+		puts player.name + ' seleccione la faccion que desee'
+		@factions.each_with_index do |faction, i|
+			puts "#{i}. #{faction.type} \n"
+		end
+		faction_index = gets.chomp.to_i
+		@factions[faction_index]
+	end
+
+	def get_armor player
+		puts player.name + ' seleccione un armor'
+		player.faction.armors_allowed.each_with_index do |armor, i|
+			puts "#{i}. #{armor.name} \n"
+		end
+		armor_index = gets.chomp.to_i
+		player.faction.armors_allowed[armor_index]
 	end
 
 	def run
